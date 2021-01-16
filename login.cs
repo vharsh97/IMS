@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace IMS
 {
-    public partial class Form1 : Form
+    public partial class login : Sample
     {
-        public Form1()
+        public login()
         {
             InitializeComponent();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -37,6 +37,8 @@ namespace IMS
             this.deleteBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.searchText = new System.Windows.Forms.TextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.leftPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -45,7 +47,9 @@ namespace IMS
             // 
             // leftPanel
             // 
+            this.leftPanel.Controls.Add(this.panel4);
             this.leftPanel.Size = new System.Drawing.Size(250, 600);
+            this.leftPanel.Controls.SetChildIndex(this.panel4, 0);
             // 
             // rightPanel
             // 
@@ -157,13 +161,21 @@ namespace IMS
             this.searchText.Size = new System.Drawing.Size(248, 27);
             this.searchText.TabIndex = 0;
             // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 56);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(250, 60);
+            this.panel4.TabIndex = 2;
+            // 
             // Sample2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1026, 600);
             this.Name = "Sample2";
-            this.Text = "Sample2";
+            this.leftPanel.ResumeLayout(false);
             this.rightPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -183,5 +195,6 @@ namespace IMS
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox searchText;
+        private System.Windows.Forms.Panel panel4;
     }
 }

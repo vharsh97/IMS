@@ -118,6 +118,9 @@
     <EmbeddedResource Include="settings.resx">
       <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

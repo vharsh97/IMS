@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace IMS
 {
-    public partial class Users : Form
+    public partial class Users : Sample2
     {
         public Users()
         {

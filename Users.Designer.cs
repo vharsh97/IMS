@@ -29,10 +29,25 @@ namespace IMS
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // leftPanel
+            // 
+            this.leftPanel.Size = new System.Drawing.Size(250, 581);
+            // 
+            // rightPanel
+            // 
+            this.rightPanel.Size = new System.Drawing.Size(799, 581);
+            // 
+            // Users
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1049, 581);
+            this.Name = "Users";
             this.Text = "Users";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

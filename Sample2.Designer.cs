@@ -189,6 +189,7 @@ namespace IMS
             this.backBtn.Size = new System.Drawing.Size(56, 56);
             this.backBtn.TabIndex = 2;
             this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // Sample2
             // 

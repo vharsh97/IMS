@@ -31,14 +31,16 @@ namespace IMS
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.addBtn = new System.Windows.Forms.Button();
-            this.editBtn = new System.Windows.Forms.Button();
-            this.saveBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.editBtn = new System.Windows.Forms.Button();
+            this.addBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.searchText = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.backBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -49,7 +51,14 @@ namespace IMS
             // 
             this.leftPanel.Controls.Add(this.panel4);
             this.leftPanel.Size = new System.Drawing.Size(250, 600);
+            this.leftPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.leftPanel_Paint);
+            this.leftPanel.Controls.SetChildIndex(this.panel2, 0);
             this.leftPanel.Controls.SetChildIndex(this.panel4, 0);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.backBtn);
+            this.panel2.Controls.SetChildIndex(this.backBtn, 0);
             // 
             // rightPanel
             // 
@@ -88,31 +97,18 @@ namespace IMS
             this.tableLayoutPanel1.Size = new System.Drawing.Size(776, 60);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // addBtn
+            // deleteBtn
             // 
-            this.addBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.addBtn.FlatAppearance.BorderSize = 2;
-            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addBtn.Location = new System.Drawing.Point(3, 3);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(123, 54);
-            this.addBtn.TabIndex = 2;
-            this.addBtn.Text = "ADD";
-            this.addBtn.UseVisualStyleBackColor = true;
-            // 
-            // editBtn
-            // 
-            this.editBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.editBtn.FlatAppearance.BorderSize = 2;
-            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editBtn.Location = new System.Drawing.Point(132, 3);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(123, 54);
-            this.editBtn.TabIndex = 3;
-            this.editBtn.Text = "EDIT";
-            this.editBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deleteBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.deleteBtn.FlatAppearance.BorderSize = 2;
+            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteBtn.Location = new System.Drawing.Point(390, 3);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(123, 54);
+            this.deleteBtn.TabIndex = 5;
+            this.deleteBtn.Text = "DELETE";
+            this.deleteBtn.UseVisualStyleBackColor = true;
             // 
             // saveBtn
             // 
@@ -127,18 +123,31 @@ namespace IMS
             this.saveBtn.Text = "SAVE";
             this.saveBtn.UseVisualStyleBackColor = true;
             // 
-            // deleteBtn
+            // editBtn
             // 
-            this.deleteBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deleteBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.deleteBtn.FlatAppearance.BorderSize = 2;
-            this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteBtn.Location = new System.Drawing.Point(390, 3);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(123, 54);
-            this.deleteBtn.TabIndex = 5;
-            this.deleteBtn.Text = "DELETE";
-            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.editBtn.FlatAppearance.BorderSize = 2;
+            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editBtn.Location = new System.Drawing.Point(132, 3);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(123, 54);
+            this.editBtn.TabIndex = 3;
+            this.editBtn.Text = "EDIT";
+            this.editBtn.UseVisualStyleBackColor = true;
+            // 
+            // addBtn
+            // 
+            this.addBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addBtn.FlatAppearance.BorderSize = 2;
+            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addBtn.Location = new System.Drawing.Point(3, 3);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(123, 54);
+            this.addBtn.TabIndex = 2;
+            this.addBtn.Text = "ADD";
+            this.addBtn.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -169,6 +178,18 @@ namespace IMS
             this.panel4.Size = new System.Drawing.Size(250, 60);
             this.panel4.TabIndex = 2;
             // 
+            // backBtn
+            // 
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Image = global::IMS.Properties.Resources.back_arrow;
+            this.backBtn.Location = new System.Drawing.Point(0, 0);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(56, 56);
+            this.backBtn.TabIndex = 2;
+            this.backBtn.UseVisualStyleBackColor = true;
+            // 
             // Sample2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -176,6 +197,7 @@ namespace IMS
             this.ClientSize = new System.Drawing.Size(1026, 600);
             this.Name = "Sample2";
             this.leftPanel.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.rightPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -196,5 +218,6 @@ namespace IMS
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox searchText;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button backBtn;
     }
 }

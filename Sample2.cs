@@ -16,5 +16,10 @@ namespace IMS
         {
             InitializeComponent();
         }
+
+        private void leftPanel_Paint(object sender, PaintEventArgs e)
+        {
+              
+        }
     }
 }

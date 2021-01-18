@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeScreen.Designer.cs">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,12 +73,27 @@
     <Compile Include="Sample.Designer.cs">
       <DependentUpon>Sample.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sample2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sample2.Designer.cs">
+      <DependentUpon>Sample2.cs</DependentUpon>
+    </Compile>
     <Compile Include="settings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="settings.Designer.cs">
       <DependentUpon>settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="HomeScreen.resx">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +111,9 @@
     </Compile>
     <EmbeddedResource Include="Sample.resx">
       <DependentUpon>Sample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sample2.resx">
+      <DependentUpon>Sample2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="settings.resx">
       <DependentUpon>settings.cs</DependentUpon>

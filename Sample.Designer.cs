@@ -49,7 +49,7 @@ namespace IMS
             this.leftPanel.ForeColor = System.Drawing.Color.White;
             this.leftPanel.Location = new System.Drawing.Point(0, 0);
             this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Size = new System.Drawing.Size(250, 519);
+            this.leftPanel.Size = new System.Drawing.Size(250, 638);
             this.leftPanel.TabIndex = 0;
             this.leftPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.leftPanel_Paint);
             // 
@@ -80,7 +80,7 @@ namespace IMS
             this.rightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rightPanel.Location = new System.Drawing.Point(250, 0);
             this.rightPanel.Name = "rightPanel";
-            this.rightPanel.Size = new System.Drawing.Size(683, 519);
+            this.rightPanel.Size = new System.Drawing.Size(683, 638);
             this.rightPanel.TabIndex = 1;
             // 
             // panel1
@@ -105,9 +105,9 @@ namespace IMS
             // 
             // Sample
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 519);
+            this.ClientSize = new System.Drawing.Size(933, 638);
             this.ControlBox = false;
             this.Controls.Add(this.rightPanel);
             this.Controls.Add(this.leftPanel);
@@ -125,7 +125,7 @@ namespace IMS
 
         protected System.Windows.Forms.Panel leftPanel;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel rightPanel;
+        protected System.Windows.Forms.Panel rightPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

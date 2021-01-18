@@ -38,5 +38,11 @@ namespace IMS
             }
             
         }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            settings set = new settings();
+            MainClass.showWindow(set, this);
+        }
     }
 }

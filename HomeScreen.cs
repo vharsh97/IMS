@@ -16,5 +16,11 @@ namespace IMS
         {
             InitializeComponent();
         }
+
+        private void userBtn_Click(object sender, EventArgs e)
+        {
+            Users u = new Users();
+            MainClass.showWindow(u, this, MDI.ActiveForm);
+        }
     }
 }

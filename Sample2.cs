@@ -27,5 +27,30 @@ namespace IMS
             HomeScreen obj = new HomeScreen();
             MainClass.showWindow(obj, this, MDI.ActiveForm);
         }
+
+        public virtual void addBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void editBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void saveBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void deleteBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public virtual void searchText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

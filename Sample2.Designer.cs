@@ -99,6 +99,7 @@ namespace IMS
             // 
             // deleteBtn
             // 
+            this.deleteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.deleteBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.deleteBtn.FlatAppearance.BorderSize = 2;
@@ -109,9 +110,11 @@ namespace IMS
             this.deleteBtn.TabIndex = 5;
             this.deleteBtn.Text = "DELETE";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // saveBtn
             // 
+            this.saveBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.saveBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.saveBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.saveBtn.FlatAppearance.BorderSize = 2;
@@ -122,9 +125,11 @@ namespace IMS
             this.saveBtn.TabIndex = 4;
             this.saveBtn.Text = "SAVE";
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // editBtn
             // 
+            this.editBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.editBtn.FlatAppearance.BorderSize = 2;
@@ -135,9 +140,11 @@ namespace IMS
             this.editBtn.TabIndex = 3;
             this.editBtn.Text = "EDIT";
             this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // addBtn
             // 
+            this.addBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.addBtn.FlatAppearance.BorderSize = 2;
@@ -148,6 +155,7 @@ namespace IMS
             this.addBtn.TabIndex = 2;
             this.addBtn.Text = "ADD";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // groupBox1
             // 
@@ -169,6 +177,7 @@ namespace IMS
             this.searchText.Name = "searchText";
             this.searchText.Size = new System.Drawing.Size(248, 27);
             this.searchText.TabIndex = 0;
+            this.searchText.TextChanged += new System.EventHandler(this.searchText_TextChanged);
             // 
             // panel4
             // 

@@ -56,6 +56,7 @@ namespace IMS
             this.leftPanel.Controls.Add(this.label3);
             this.leftPanel.Size = new System.Drawing.Size(250, 581);
             this.leftPanel.TabIndex = 1;
+            this.leftPanel.Controls.SetChildIndex(this.panel2, 0);
             this.leftPanel.Controls.SetChildIndex(this.label3, 0);
             this.leftPanel.Controls.SetChildIndex(this.textBox1, 0);
             this.leftPanel.Controls.SetChildIndex(this.label4, 0);
@@ -70,6 +71,7 @@ namespace IMS
             // rightPanel
             // 
             this.rightPanel.Size = new System.Drawing.Size(799, 581);
+            this.rightPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.rightPanel_Paint);
             // 
             // label3
             // 
@@ -164,6 +166,7 @@ namespace IMS
             this.ClientSize = new System.Drawing.Size(1049, 581);
             this.Name = "Users";
             this.Text = "Users";
+            this.Load += new System.EventHandler(this.Users_Load);
             this.leftPanel.ResumeLayout(false);
             this.leftPanel.PerformLayout();
             this.ResumeLayout(false);

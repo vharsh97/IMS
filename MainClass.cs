@@ -4,11 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Data.SqlClient;
 
 namespace IMS
 {
     class MainClass
     {
+        private static string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        private static string s = File.ReadAllText(path+"\\connect");
+        public static SqlConnection con = new SqlConnection(s);
+
+        public static DialogResult showMSG(string msg, string heading, string type)
+        {
+            if (type == "Success")
+            {
+                return MessageBox.Show(msg, heading, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                return MessageBox.Show(msg, heading, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
         public static void showWindow(Form openWin, Form closeWin, Form MDIWin)
         {
             closeWin.Close();

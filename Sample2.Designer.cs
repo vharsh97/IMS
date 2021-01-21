@@ -37,7 +37,6 @@ namespace IMS
             this.addBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.searchText = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.backBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -49,11 +48,8 @@ namespace IMS
             // 
             // leftPanel
             // 
-            this.leftPanel.Controls.Add(this.panel4);
             this.leftPanel.Size = new System.Drawing.Size(250, 600);
             this.leftPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.leftPanel_Paint);
-            this.leftPanel.Controls.SetChildIndex(this.panel2, 0);
-            this.leftPanel.Controls.SetChildIndex(this.panel4, 0);
             // 
             // panel2
             // 
@@ -179,14 +175,6 @@ namespace IMS
             this.searchText.TabIndex = 0;
             this.searchText.TextChanged += new System.EventHandler(this.searchText_TextChanged);
             // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 56);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 60);
-            this.panel4.TabIndex = 2;
-            // 
             // backBtn
             // 
             this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
@@ -227,7 +215,6 @@ namespace IMS
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox searchText;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button backBtn;
     }
 }

@@ -142,5 +142,10 @@ namespace IMS
                 MainClass.disable(leftPanel);
             }
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

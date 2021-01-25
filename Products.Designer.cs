@@ -29,6 +29,9 @@ namespace IMS
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.productText = new System.Windows.Forms.TextBox();
             this.barcodeText = new System.Windows.Forms.TextBox();
@@ -44,7 +47,17 @@ namespace IMS
             this.label7 = new System.Windows.Forms.Label();
             this.categoryErrorLabel = new System.Windows.Forms.Label();
             this.categoryDD = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.productIDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.barcodeGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expiryGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryIDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leftPanel.SuspendLayout();
+            this.rightPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // searchText
@@ -88,7 +101,9 @@ namespace IMS
             // 
             // rightPanel
             // 
+            this.rightPanel.Controls.Add(this.dataGridView1);
             this.rightPanel.Size = new System.Drawing.Size(727, 663);
+            this.rightPanel.Controls.SetChildIndex(this.dataGridView1, 0);
             // 
             // label3
             // 
@@ -234,6 +249,105 @@ namespace IMS
             this.categoryDD.Size = new System.Drawing.Size(225, 28);
             this.categoryDD.TabIndex = 22;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productIDGV,
+            this.productNameGV,
+            this.barcodeGV,
+            this.expiryGV,
+            this.priceGV,
+            this.categoryIDGV,
+            this.categoryGV});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 116);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(727, 547);
+            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // productIDGV
+            // 
+            this.productIDGV.HeaderText = "ProductID";
+            this.productIDGV.MinimumWidth = 6;
+            this.productIDGV.Name = "productIDGV";
+            this.productIDGV.ReadOnly = true;
+            this.productIDGV.Visible = false;
+            // 
+            // productNameGV
+            // 
+            this.productNameGV.HeaderText = "Product Name";
+            this.productNameGV.MinimumWidth = 6;
+            this.productNameGV.Name = "productNameGV";
+            this.productNameGV.ReadOnly = true;
+            // 
+            // barcodeGV
+            // 
+            this.barcodeGV.HeaderText = "Barcode";
+            this.barcodeGV.MinimumWidth = 6;
+            this.barcodeGV.Name = "barcodeGV";
+            this.barcodeGV.ReadOnly = true;
+            // 
+            // expiryGV
+            // 
+            this.expiryGV.HeaderText = "Expiry Date";
+            this.expiryGV.MinimumWidth = 6;
+            this.expiryGV.Name = "expiryGV";
+            this.expiryGV.ReadOnly = true;
+            this.expiryGV.Visible = false;
+            // 
+            // priceGV
+            // 
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.priceGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.priceGV.HeaderText = "Price";
+            this.priceGV.MinimumWidth = 6;
+            this.priceGV.Name = "priceGV";
+            this.priceGV.ReadOnly = true;
+            // 
+            // categoryIDGV
+            // 
+            this.categoryIDGV.HeaderText = "Category ID";
+            this.categoryIDGV.MinimumWidth = 6;
+            this.categoryIDGV.Name = "categoryIDGV";
+            this.categoryIDGV.ReadOnly = true;
+            this.categoryIDGV.Visible = false;
+            // 
+            // categoryGV
+            // 
+            this.categoryGV.HeaderText = "Category";
+            this.categoryGV.MinimumWidth = 6;
+            this.categoryGV.Name = "categoryGV";
+            this.categoryGV.ReadOnly = true;
+            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -244,6 +358,8 @@ namespace IMS
             this.Load += new System.EventHandler(this.Products_Load);
             this.leftPanel.ResumeLayout(false);
             this.leftPanel.PerformLayout();
+            this.rightPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,5 +381,13 @@ namespace IMS
         private System.Windows.Forms.ComboBox categoryDD;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label categoryErrorLabel;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productIDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productNameGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcodeGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expiryGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryIDGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryGV;
     }
 }

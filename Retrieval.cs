@@ -100,5 +100,29 @@ namespace IMS
                 throw;
             }
         }
+
+        public void showProducts(DataGridView gv, DataGridViewColumn productIDGV, DataGridViewColumn productNameGV, DataGridViewColumn expiryGV, DataGridViewColumn categoryGV, DataGridViewColumn priceGV, DataGridViewColumn barcodeGV, DataGridViewColumn categoryIDGV)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getProductData", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                productIDGV.DataPropertyName = dt.Columns["Product ID"].ToString();
+                productNameGV.DataPropertyName = dt.Columns["Product"].ToString();
+                expiryGV.DataPropertyName = dt.Columns["Expiry"].ToString();
+                categoryGV.DataPropertyName = dt.Columns["Category"].ToString();
+                priceGV.DataPropertyName = dt.Columns["Price"].ToString();
+                barcodeGV.DataPropertyName = dt.Columns["Barcode"].ToString();
+                categoryIDGV.DataPropertyName = dt.Columns["Category ID"].ToString();
+                gv.DataSource = dt;
+            }
+            catch (Exception)
+            {
+                MainClass.showMSG("Unable to load Product data.", "Error", "Error");
+            }
+        }
     }
 }

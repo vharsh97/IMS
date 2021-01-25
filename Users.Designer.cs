@@ -57,6 +57,7 @@ namespace IMS
             this.statusGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.statusDropdown = new System.Windows.Forms.ComboBox();
+            this.statusErrorLabel = new System.Windows.Forms.Label();
             this.leftPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -82,8 +83,10 @@ namespace IMS
             this.leftPanel.Controls.Add(this.passwordErrorLabel);
             this.leftPanel.Controls.Add(this.phoneErrorLabel);
             this.leftPanel.Controls.Add(this.emailErrorLabel);
+            this.leftPanel.Controls.Add(this.statusErrorLabel);
             this.leftPanel.Size = new System.Drawing.Size(250, 581);
             this.leftPanel.TabIndex = 1;
+            this.leftPanel.Controls.SetChildIndex(this.statusErrorLabel, 0);
             this.leftPanel.Controls.SetChildIndex(this.emailErrorLabel, 0);
             this.leftPanel.Controls.SetChildIndex(this.phoneErrorLabel, 0);
             this.leftPanel.Controls.SetChildIndex(this.passwordErrorLabel, 0);
@@ -377,12 +380,24 @@ namespace IMS
             this.statusDropdown.FormattingEnabled = true;
             this.statusDropdown.Items.AddRange(new object[] {
             "Active",
-            "Inactive"});
+            "In-active"});
             this.statusDropdown.Location = new System.Drawing.Point(12, 457);
             this.statusDropdown.Name = "statusDropdown";
             this.statusDropdown.Size = new System.Drawing.Size(225, 28);
             this.statusDropdown.TabIndex = 18;
             this.statusDropdown.SelectedIndexChanged += new System.EventHandler(this.statusDropdown_SelectedIndexChanged);
+            // 
+            // statusErrorLabel
+            // 
+            this.statusErrorLabel.AutoSize = true;
+            this.statusErrorLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusErrorLabel.ForeColor = System.Drawing.Color.Salmon;
+            this.statusErrorLabel.Location = new System.Drawing.Point(55, 429);
+            this.statusErrorLabel.Name = "statusErrorLabel";
+            this.statusErrorLabel.Size = new System.Drawing.Size(25, 35);
+            this.statusErrorLabel.TabIndex = 19;
+            this.statusErrorLabel.Text = "*";
+            this.statusErrorLabel.Visible = false;
             // 
             // Users
             // 
@@ -428,5 +443,6 @@ namespace IMS
         private System.Windows.Forms.DataGridViewTextBoxColumn statusGV;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox statusDropdown;
+        private System.Windows.Forms.Label statusErrorLabel;
     }
 }

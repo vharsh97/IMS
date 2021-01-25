@@ -11,11 +11,20 @@ namespace IMS
 {
     class Retrieval
     {
-        public void showUsers(DataGridView gv, DataGridViewColumn userIDGV, DataGridViewColumn nameGV, DataGridViewColumn usernameGV, DataGridViewColumn passwordGV, DataGridViewColumn phoneGV, DataGridViewColumn emailGV, DataGridViewColumn statusGV)
+        public void showUsers(DataGridView gv, DataGridViewColumn userIDGV, DataGridViewColumn nameGV, DataGridViewColumn usernameGV, DataGridViewColumn passwordGV, DataGridViewColumn phoneGV, DataGridViewColumn emailGV, DataGridViewColumn statusGV, string data=null)
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("st_getUserData", MainClass.con);
+                SqlCommand cmd;
+                if (data == null)
+                {
+                    cmd = new SqlCommand("st_getUserData", MainClass.con);
+                }
+                else
+                {
+                    cmd = new SqlCommand("st_getUserDataLIKE", MainClass.con);
+                    cmd.Parameters.AddWithValue("@data", data);
+                }
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();

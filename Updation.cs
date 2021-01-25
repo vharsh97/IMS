@@ -10,7 +10,7 @@ namespace IMS
 {
     class Updation
     {
-        public void updateUser(int id, string name, string username, string password, string phone, string email)
+        public void updateUser(int id, string name, string username, string password, string phone, string email, Int16 status)
         {
             try
             {
@@ -22,6 +22,7 @@ namespace IMS
                 cmd.Parameters.AddWithValue("@phone", phone);
                 cmd.Parameters.AddWithValue("@email", email);
                 cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@status", status);
                 MainClass.con.Open();
                 cmd.ExecuteNonQuery();
                 MainClass.con.Close();

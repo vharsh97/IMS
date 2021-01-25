@@ -15,6 +15,7 @@ namespace IMS
     {
         int edit = 0; // This 0 is an indication to save operation and 1 is an indication to update operation.
         int userID;
+        short stat;
         public Users()
         {
             InitializeComponent();
@@ -51,38 +52,66 @@ namespace IMS
             if (passwordText.Text == "") { passwordErrorLabel.Visible = true; } else { passwordErrorLabel.Visible = false; }
             if (emailText.Text == "") { emailErrorLabel.Visible = true; } else { emailErrorLabel.Visible = false; }
             if (phoneText.Text == "") { phoneErrorLabel.Visible = true; } else { phoneErrorLabel.Visible = false; }
-
-            if (nameErrorLabel.Visible || usernameErrorLabel.Visible || passwordErrorLabel.Visible || phoneErrorLabel.Visible || emailErrorLabel.Visible)
+            if(statusDropdown.SelectedIndex == -1) { statusErrorLabel.Visible = true; } else { statusErrorLabel.Visible = false; }
+            if (nameErrorLabel.Visible || usernameErrorLabel.Visible || passwordErrorLabel.Visible || phoneErrorLabel.Visible || emailErrorLabel.Visible || statusErrorLabel.Visible)
             {
                 MainClass.showMSG("Fields with * are mandatory", "Stop", "Error"); //Error is the type of message.
             }
             else
             {
+                if (statusDropdown.SelectedIndex == 0)
+                {
+                    stat = 1;
+                }
+                else if (statusDropdown.SelectedIndex == 1)
+                {
+                    stat = 0;
+                }
                 if (edit == 0) //code for save operation
                 {
                     Insertion i = new Insertion();
-                    i.insertUser(nameText.Text, usernameText.Text, passwordText.Text, phoneText.Text, emailText.Text);
+                    i.insertUser(nameText.Text, usernameText.Text, passwordText.Text, phoneText.Text, emailText.Text,stat);
                     r.showUsers(dataGridView1, userIDGV, NameGV, usernameGV, passwordGV, phoneGV, emailGV, statusGV);
                     MainClass.disable_reset(leftPanel);
                 }
                 else if (edit == 1) //code for edit operation
                 {
-                    Updation u = new Updation();                  
-                    u.updateUser(userID, nameText.Text, usernameText.Text, passwordText.Text, phoneText.Text, emailText.Text);
-                    r.showUsers(dataGridView1, userIDGV, NameGV, usernameGV, passwordGV, phoneGV, emailGV, statusGV);
-                    MainClass.disable_reset(leftPanel);
+                    DialogResult dr = MessageBox.Show("Are you sure, you want to update record?", "Question...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if(dr == DialogResult.Yes)
+                    {
+                        Updation u = new Updation();
+                        u.updateUser(userID, nameText.Text, usernameText.Text, passwordText.Text, phoneText.Text, emailText.Text, stat);
+                        r.showUsers(dataGridView1, userIDGV, NameGV, usernameGV, passwordGV, phoneGV, emailGV, statusGV);
+                        MainClass.disable_reset(leftPanel);
+                    }
                 }
             }
         }
 
         public override void deleteBtn_Click(object sender, EventArgs e)
         {
-
+            if(edit == 1)
+            {
+                DialogResult dr = MessageBox.Show("Are you sure, you want to delete record?", "Question...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    Deletion d = new Deletion();
+                    d.deleteUser(userID, "st_deleteUsers", "@id");
+                    r.showUsers(dataGridView1, userIDGV, NameGV, usernameGV, passwordGV, phoneGV, emailGV, statusGV);
+                }
+            }
         }
 
         public override void searchText_TextChanged(object sender, EventArgs e)
         {
-
+            if(searchText.Text != "")
+            {
+                r.showUsers(dataGridView1, userIDGV, NameGV, usernameGV, passwordGV, phoneGV, emailGV, statusGV, searchText.Text);
+            }
+            else
+            {
+                r.showUsers(dataGridView1, userIDGV, NameGV, usernameGV, passwordGV, phoneGV, emailGV, statusGV);
+            }
         }
         public override void viewBtn_Click(object sender, EventArgs e)
         {

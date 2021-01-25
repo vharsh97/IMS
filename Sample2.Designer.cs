@@ -230,7 +230,7 @@ namespace IMS
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox searchText;
+        protected System.Windows.Forms.TextBox searchText;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button viewBtn;
     }

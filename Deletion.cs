@@ -10,7 +10,7 @@ namespace IMS
 {
     class Deletion
     {
-        public void deleteUser(object id, string proc, string param)
+        public void delete(object id, string proc, string param)
         {
             try
             {

@@ -16,13 +16,11 @@ namespace IMS
         int edit = 0; // This 0 is an indication to save operation and 1 is an indication to update operation.
         int userID;
         short stat;
+        Retrieval r = new Retrieval();
         public Users()
         {
             InitializeComponent();
         }
-
-        Retrieval r = new Retrieval();
-
         private void rightPanel_Paint(object sender, PaintEventArgs e)
         {
 
@@ -30,7 +28,7 @@ namespace IMS
 
         private void Users_Load(object sender, EventArgs e)
         {
-            MainClass.disable(leftPanel);
+            MainClass.disable_reset(leftPanel);
         }
 
         public override void addBtn_Click(object sender, EventArgs e)
@@ -96,7 +94,7 @@ namespace IMS
                 if (dr == DialogResult.Yes)
                 {
                     Deletion d = new Deletion();
-                    d.deleteUser(userID, "st_deleteUsers", "@id");
+                    d.delete(userID, "st_deleteUsers", "@id");
                     r.showUsers(dataGridView1, userIDGV, NameGV, usernameGV, passwordGV, phoneGV, emailGV, statusGV);
                 }
             }
@@ -143,16 +141,6 @@ namespace IMS
                 statusDropdown.SelectedItem = row.Cells["statusGV"].Value.ToString();
                 MainClass.disable(leftPanel);
             }
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void statusDropdown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

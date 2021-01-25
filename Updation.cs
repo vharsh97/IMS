@@ -35,5 +35,27 @@ namespace IMS
                 MainClass.showMSG(ex.Message, "Error...", "Error");
             }
         }
+
+        public void updateCategory(int id, string name, Int16 status)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_updateCategory", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@isActive", status);
+                cmd.Parameters.AddWithValue("@id", id);
+                MainClass.con.Open();
+                cmd.ExecuteNonQuery();
+                MainClass.con.Close();
+                MainClass.showMSG(name + " updated successfully", "Success...", "Success");
+
+            }
+            catch (Exception ex)
+            {
+                MainClass.con.Close();
+                MainClass.showMSG(ex.Message, "Error...", "Error");
+            }
+        }
     }
 }

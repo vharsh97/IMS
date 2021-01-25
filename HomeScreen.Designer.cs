@@ -33,8 +33,9 @@ namespace IMS
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.productDD = new System.Windows.Forms.Button();
             this.userBtn = new System.Windows.Forms.Button();
+            this.categoryBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -61,8 +62,9 @@ namespace IMS
             this.tableLayoutPanel1.Controls.Add(this.button5, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.button4, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.button3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.productDD, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.userBtn, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.categoryBtn, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 56);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -117,19 +119,20 @@ namespace IMS
             this.button3.Text = "Stock";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // productDD
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(164, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 92);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Products";
-            this.button2.UseVisualStyleBackColor = true;
+            this.productDD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.productDD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productDD.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.productDD.FlatAppearance.BorderSize = 2;
+            this.productDD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.productDD.Location = new System.Drawing.Point(164, 3);
+            this.productDD.Name = "productDD";
+            this.productDD.Size = new System.Drawing.Size(155, 92);
+            this.productDD.TabIndex = 1;
+            this.productDD.Text = "Products";
+            this.productDD.UseVisualStyleBackColor = true;
+            this.productDD.Click += new System.EventHandler(this.productDD_Click);
             // 
             // userBtn
             // 
@@ -145,6 +148,21 @@ namespace IMS
             this.userBtn.Text = "Users";
             this.userBtn.UseVisualStyleBackColor = true;
             this.userBtn.Click += new System.EventHandler(this.userBtn_Click);
+            // 
+            // categoryBtn
+            // 
+            this.categoryBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.categoryBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categoryBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.categoryBtn.FlatAppearance.BorderSize = 2;
+            this.categoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.categoryBtn.Location = new System.Drawing.Point(3, 101);
+            this.categoryBtn.Name = "categoryBtn";
+            this.categoryBtn.Size = new System.Drawing.Size(155, 92);
+            this.categoryBtn.TabIndex = 5;
+            this.categoryBtn.Text = "Categories";
+            this.categoryBtn.UseVisualStyleBackColor = true;
+            this.categoryBtn.Click += new System.EventHandler(this.categoryBtn_Click);
             // 
             // HomeScreen
             // 
@@ -166,7 +184,8 @@ namespace IMS
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button productDD;
         private System.Windows.Forms.Button userBtn;
+        private System.Windows.Forms.Button categoryBtn;
     }
 }

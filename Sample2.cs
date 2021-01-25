@@ -52,5 +52,15 @@ namespace IMS
         {
 
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public virtual void viewBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

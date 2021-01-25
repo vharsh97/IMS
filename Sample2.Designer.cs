@@ -38,6 +38,7 @@ namespace IMS
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.searchText = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.Button();
+            this.viewBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.rightPanel.SuspendLayout();
@@ -84,7 +85,8 @@ namespace IMS
             this.tableLayoutPanel1.Controls.Add(this.saveBtn, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.editBtn, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.addBtn, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.viewBtn, 4, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -92,6 +94,7 @@ namespace IMS
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(776, 60);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // deleteBtn
             // 
@@ -155,12 +158,11 @@ namespace IMS
             // 
             // groupBox1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 2);
             this.groupBox1.Controls.Add(this.searchText);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(519, 3);
+            this.groupBox1.Location = new System.Drawing.Point(648, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(254, 54);
+            this.groupBox1.Size = new System.Drawing.Size(125, 54);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";
@@ -171,7 +173,7 @@ namespace IMS
             this.searchText.Location = new System.Drawing.Point(3, 23);
             this.searchText.MaxLength = 100;
             this.searchText.Name = "searchText";
-            this.searchText.Size = new System.Drawing.Size(248, 27);
+            this.searchText.Size = new System.Drawing.Size(119, 27);
             this.searchText.TabIndex = 0;
             this.searchText.TextChanged += new System.EventHandler(this.searchText_TextChanged);
             // 
@@ -187,6 +189,20 @@ namespace IMS
             this.backBtn.TabIndex = 2;
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
+            // viewBtn
+            // 
+            this.viewBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viewBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.viewBtn.FlatAppearance.BorderSize = 2;
+            this.viewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewBtn.Location = new System.Drawing.Point(519, 3);
+            this.viewBtn.Name = "viewBtn";
+            this.viewBtn.Size = new System.Drawing.Size(123, 54);
+            this.viewBtn.TabIndex = 7;
+            this.viewBtn.Text = "VIEW";
+            this.viewBtn.UseVisualStyleBackColor = true;
+            this.viewBtn.Click += new System.EventHandler(this.viewBtn_Click);
             // 
             // Sample2
             // 
@@ -216,5 +232,6 @@ namespace IMS
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox searchText;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Button viewBtn;
     }
 }

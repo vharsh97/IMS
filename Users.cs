@@ -14,6 +14,7 @@ namespace IMS
     public partial class Users : Sample2
     {
         int edit = 0; // This 0 is an indication to save operation and 1 is an indication to update operation.
+        int userID;
         public Users()
         {
             InitializeComponent();
@@ -29,7 +30,6 @@ namespace IMS
         private void Users_Load(object sender, EventArgs e)
         {
             MainClass.disable(leftPanel);
-            r.showUsers(dataGridView1, userIDGV, NameGV, usernameGV, passwordGV, phoneGV, emailGV, statusGV);
         }
 
         public override void addBtn_Click(object sender, EventArgs e)
@@ -41,6 +41,7 @@ namespace IMS
         public override void editBtn_Click(object sender, EventArgs e)
         {
             edit = 1;
+            MainClass.enable(leftPanel);
         }
 
         public override void saveBtn_Click(object sender, EventArgs e)
@@ -67,7 +68,7 @@ namespace IMS
                 else if (edit == 1) //code for edit operation
                 {
                     Updation u = new Updation();                  
-                    u.updateUser(0, nameText.Text, usernameText.Text, passwordText.Text, phoneText.Text, emailText.Text);
+                    u.updateUser(userID, nameText.Text, usernameText.Text, passwordText.Text, phoneText.Text, emailText.Text);
                     r.showUsers(dataGridView1, userIDGV, NameGV, usernameGV, passwordGV, phoneGV, emailGV, statusGV);
                     MainClass.disable_reset(leftPanel);
                 }
@@ -83,6 +84,10 @@ namespace IMS
         {
 
         }
+        public override void viewBtn_Click(object sender, EventArgs e)
+        {
+            r.showUsers(dataGridView1, userIDGV, NameGV, usernameGV, passwordGV, phoneGV, emailGV, statusGV);
+        }
 
         private void label10_Click(object sender, EventArgs e)
         {
@@ -90,6 +95,33 @@ namespace IMS
         }
 
         private void emailText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex != -1)
+            {
+                edit = 1;
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                userID = Convert.ToInt32(row.Cells["userIDGV"].Value.ToString());
+                nameText.Text = row.Cells["NameGV"].Value.ToString();
+                usernameText.Text = row.Cells["usernameGV"].Value.ToString();
+                passwordText.Text = row.Cells["passwordGV"].Value.ToString();
+                phoneText.Text = row.Cells["phoneGV"].Value.ToString();
+                emailText.Text = row.Cells["emailGV"].Value.ToString();
+                statusDropdown.SelectedItem = row.Cells["statusGV"].Value.ToString();
+                MainClass.disable(leftPanel);
+            }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void statusDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

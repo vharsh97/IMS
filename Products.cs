@@ -128,5 +128,20 @@ namespace IMS
                 MainClass.disable(leftPanel);
             }
         }
+
+        private void productText_TextChanged(object sender, EventArgs e)
+        {
+            if (productText.Text == "") { productErrorLabel.Visible = true; } else { productErrorLabel.Visible = false; }
+        }
+
+        private void barcodeText_TextChanged(object sender, EventArgs e)
+        {
+            if (barcodeText.Text == "") { barcodeErrorLabel.Visible = true; } else { barcodeErrorLabel.Visible = false; }
+        }
+
+        private void priceText_TextChanged(object sender, EventArgs e)
+        {
+            if (priceText.Text == "") { priceErrorLabel.Visible = true; } else { priceErrorLabel.Visible = false; }
+        }
     }
 }

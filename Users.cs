@@ -121,11 +121,6 @@ namespace IMS
 
         }
 
-        private void emailText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex != -1)
@@ -143,9 +138,28 @@ namespace IMS
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void nameText_TextChanged(object sender, EventArgs e)
         {
+            if (nameText.Text == "") { nameErrorLabel.Visible = true; } else { nameErrorLabel.Visible = false; }
+        }
 
+        private void usernameText_TextChanged(object sender, EventArgs e)
+        {
+            if (usernameText.Text == "") { usernameErrorLabel.Visible = true; } else { usernameErrorLabel.Visible = false; }
+        }
+
+        private void passwordText_TextChanged(object sender, EventArgs e)
+        {
+            if (passwordText.Text == "") { passwordErrorLabel.Visible = true; } else { passwordErrorLabel.Visible = false; }
+        }
+
+        private void phoneText_TextChanged(object sender, EventArgs e)
+        {
+            if (phoneText.Text == "") { phoneErrorLabel.Visible = true; } else { phoneErrorLabel.Visible = false; }
+        }
+        private void emailText_TextChanged(object sender, EventArgs e)
+        {
+            if (emailText.Text == "") { emailErrorLabel.Visible = true; } else { emailErrorLabel.Visible = false; }
         }
     }
 }

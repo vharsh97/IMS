@@ -120,6 +120,7 @@ namespace IMS
             this.productText.Name = "productText";
             this.productText.Size = new System.Drawing.Size(225, 27);
             this.productText.TabIndex = 3;
+            this.productText.TextChanged += new System.EventHandler(this.productText_TextChanged);
             // 
             // barcodeText
             // 
@@ -127,6 +128,7 @@ namespace IMS
             this.barcodeText.Name = "barcodeText";
             this.barcodeText.Size = new System.Drawing.Size(225, 27);
             this.barcodeText.TabIndex = 5;
+            this.barcodeText.TextChanged += new System.EventHandler(this.barcodeText_TextChanged);
             // 
             // label4
             // 
@@ -152,6 +154,7 @@ namespace IMS
             this.priceText.Name = "priceText";
             this.priceText.Size = new System.Drawing.Size(225, 27);
             this.priceText.TabIndex = 9;
+            this.priceText.TextChanged += new System.EventHandler(this.priceText_TextChanged);
             // 
             // label6
             // 

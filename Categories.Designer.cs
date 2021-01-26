@@ -88,6 +88,7 @@ namespace IMS
             this.categoryText.Name = "categoryText";
             this.categoryText.Size = new System.Drawing.Size(225, 27);
             this.categoryText.TabIndex = 7;
+            this.categoryText.TextChanged += new System.EventHandler(this.categoryText_TextChanged);
             // 
             // label3
             // 

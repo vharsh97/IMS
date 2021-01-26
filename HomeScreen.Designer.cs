@@ -171,6 +171,7 @@ namespace IMS
             this.ClientSize = new System.Drawing.Size(1059, 549);
             this.Name = "HomeScreen";
             this.Text = "Home Screen";
+            this.Load += new System.EventHandler(this.HomeScreen_Load);
             this.leftPanel.ResumeLayout(false);
             this.rightPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

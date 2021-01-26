@@ -71,6 +71,12 @@ namespace IMS
                     cb.Enabled = false;
                     cb.Checked = false;
                 }
+                if (c is DateTimePicker)
+                {
+                    DateTimePicker dtp = (DateTimePicker)c;
+                    dtp.Enabled = false;
+                    dtp.Value = DateTime.Now;
+                }
             }
         }
 
@@ -97,6 +103,11 @@ namespace IMS
                 {
                     CheckBox cb = (CheckBox)c;
                     cb.Enabled = false;
+                }
+                if (c is DateTimePicker)
+                {
+                    DateTimePicker dtp = (DateTimePicker)c;
+                    dtp.Enabled = false;
                 }
             }
         }
@@ -129,6 +140,12 @@ namespace IMS
                     cb.Enabled = true;
                     cb.Checked = false;
                 }
+                if (c is DateTimePicker)
+                {
+                    DateTimePicker dtp = (DateTimePicker)c;
+                    dtp.Enabled = true;
+                    dtp.Value = DateTime.Now;
+                }
             }
         }
 
@@ -155,6 +172,11 @@ namespace IMS
                 {
                     CheckBox cb = (CheckBox)c;
                     cb.Enabled = true;
+                }
+                if (c is DateTimePicker)
+                {
+                    DateTimePicker dtp = (DateTimePicker)c;
+                    dtp.Enabled = true;
                 }
             }
         }

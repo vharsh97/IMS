@@ -120,5 +120,10 @@ namespace IMS
                 MainClass.disable(leftPanel);
             }
         }
+
+        private void categoryText_TextChanged(object sender, EventArgs e)
+        {
+            if (categoryText.Text == "") { categoryErrorLabel.Visible = true; } else { categoryErrorLabel.Visible = false; }
+        }
     }
 }

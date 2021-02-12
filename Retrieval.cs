@@ -100,6 +100,41 @@ namespace IMS
             }
         }
 
+        private string[] productsData = new string[4];
+
+        public string[] getProductsWRTBarcode(string barcode)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getProductByBarcode", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@barcode", barcode);
+                MainClass.con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while(dr.Read())
+                    {
+                        productsData[0] = dr[0].ToString();
+                        productsData[1] = dr[1].ToString();
+                        productsData[2] = dr[2].ToString();
+                        productsData[3] = dr[3].ToString();
+                    }
+                }
+                else
+                {
+                   
+                }
+                MainClass.con.Close();
+            }
+            catch (Exception)
+            {
+                MainClass.con.Close();
+                throw;
+            }
+            return productsData;
+        }
+
         public void showProducts(DataGridView gv, DataGridViewColumn productIDGV, DataGridViewColumn productNameGV, DataGridViewColumn expiryGV, DataGridViewColumn categoryGV, DataGridViewColumn priceGV, DataGridViewColumn barcodeGV, DataGridViewColumn categoryIDGV)
         {
             try

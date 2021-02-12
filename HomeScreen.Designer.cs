@@ -31,11 +31,12 @@ namespace IMS
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.purchaseInvoiceBtn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.productDD = new System.Windows.Forms.Button();
             this.userBtn = new System.Windows.Forms.Button();
             this.categoryBtn = new System.Windows.Forms.Button();
+            this.supplierBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -60,11 +61,12 @@ namespace IMS
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Controls.Add(this.button5, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.purchaseInvoiceBtn, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.button3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.productDD, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.userBtn, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.categoryBtn, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.supplierBtn, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 56);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -91,19 +93,20 @@ namespace IMS
             this.button5.Text = "Sales";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // purchaseInvoiceBtn
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.FlatAppearance.BorderSize = 2;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(486, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(155, 92);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Purchase Invoice";
-            this.button4.UseVisualStyleBackColor = true;
+            this.purchaseInvoiceBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.purchaseInvoiceBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.purchaseInvoiceBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.purchaseInvoiceBtn.FlatAppearance.BorderSize = 2;
+            this.purchaseInvoiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.purchaseInvoiceBtn.Location = new System.Drawing.Point(486, 3);
+            this.purchaseInvoiceBtn.Name = "purchaseInvoiceBtn";
+            this.purchaseInvoiceBtn.Size = new System.Drawing.Size(155, 92);
+            this.purchaseInvoiceBtn.TabIndex = 3;
+            this.purchaseInvoiceBtn.Text = "Purchase Invoice";
+            this.purchaseInvoiceBtn.UseVisualStyleBackColor = true;
+            this.purchaseInvoiceBtn.Click += new System.EventHandler(this.purchaseInvoiceBtn_Click);
             // 
             // button3
             // 
@@ -164,6 +167,21 @@ namespace IMS
             this.categoryBtn.UseVisualStyleBackColor = true;
             this.categoryBtn.Click += new System.EventHandler(this.categoryBtn_Click);
             // 
+            // supplierBtn
+            // 
+            this.supplierBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.supplierBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.supplierBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.supplierBtn.FlatAppearance.BorderSize = 2;
+            this.supplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.supplierBtn.Location = new System.Drawing.Point(164, 101);
+            this.supplierBtn.Name = "supplierBtn";
+            this.supplierBtn.Size = new System.Drawing.Size(155, 92);
+            this.supplierBtn.TabIndex = 6;
+            this.supplierBtn.Text = "Suppliers";
+            this.supplierBtn.UseVisualStyleBackColor = true;
+            this.supplierBtn.Click += new System.EventHandler(this.supplierBtn_Click);
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -183,10 +201,11 @@ namespace IMS
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button purchaseInvoiceBtn;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button productDD;
         private System.Windows.Forms.Button userBtn;
         private System.Windows.Forms.Button categoryBtn;
+        private System.Windows.Forms.Button supplierBtn;
     }
 }

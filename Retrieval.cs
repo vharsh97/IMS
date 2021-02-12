@@ -74,7 +74,7 @@ namespace IMS
             }
         }
 
-        public void getCategoriesList(string proc, ComboBox cb, string dispalyMember, string valueMember)
+        public void getList(string proc, ComboBox cb, string dispalyMember, string valueMember)
         {
             try
             {
@@ -187,6 +187,31 @@ namespace IMS
                 MainClass.showMSG("Unable to login...", "Error", "Error");
             }
             return checkLogin;
+        }
+
+        public void showSuppliers(DataGridView gv, DataGridViewColumn suppIDGV, DataGridViewColumn companyNameGV, DataGridViewColumn personGV, DataGridViewColumn phone1GV, DataGridViewColumn phone2GV, DataGridViewColumn addressGV, DataGridViewColumn ntnGV, DataGridViewColumn statusGV)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getSupplierData", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                suppIDGV.DataPropertyName = dt.Columns["ID"].ToString();
+                companyNameGV.DataPropertyName = dt.Columns["Company"].ToString();
+                personGV.DataPropertyName = dt.Columns["Contact Person"].ToString();
+                phone1GV.DataPropertyName = dt.Columns["Phone 1"].ToString();
+                phone2GV.DataPropertyName = dt.Columns["Phone 2"].ToString();
+                ntnGV.DataPropertyName = dt.Columns["NTN #"].ToString();
+                addressGV.DataPropertyName = dt.Columns["Address"].ToString();
+                statusGV.DataPropertyName = dt.Columns["Status"].ToString();
+                gv.DataSource = dt;
+            }
+            catch (Exception)
+            {
+                MainClass.showMSG("Unable to load Suppliers data.", "Error", "Error");
+            }
         }
     }
 }

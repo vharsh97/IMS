@@ -324,7 +324,6 @@ namespace IMS
             this.expiryGV.MinimumWidth = 6;
             this.expiryGV.Name = "expiryGV";
             this.expiryGV.ReadOnly = true;
-            this.expiryGV.Visible = false;
             // 
             // priceGV
             // 

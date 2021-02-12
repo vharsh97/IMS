@@ -17,6 +17,12 @@ namespace IMS
             InitializeComponent();
         }
 
+        private void HomeScreen_Load(object sender, EventArgs e)
+        {
+            MDI.logoutToolStripMenuItem.Enabled = true;
+            userLabel.Text = Retrieval.EMP_NAME;
+        }
+
         private void userBtn_Click(object sender, EventArgs e)
         {
             Users u = new Users();
@@ -35,10 +41,16 @@ namespace IMS
             MainClass.showWindow(p, this, MDI.ActiveForm);
         }
 
-        private void HomeScreen_Load(object sender, EventArgs e)
+        private void supplierBtn_Click(object sender, EventArgs e)
         {
-            MDI.logoutToolStripMenuItem.Enabled = true;
-            userLabel.Text = Retrieval.EMP_NAME;
+            Supplier s = new Supplier();
+            MainClass.showWindow(s, this, MDI.ActiveForm);
+        }
+
+        private void purchaseInvoiceBtn_Click(object sender, EventArgs e)
+        {
+            PurchaseInvoice pr = new PurchaseInvoice();
+            MainClass.showWindow(pr, this, MDI.ActiveForm);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace IMS
         private void Products_Load(object sender, EventArgs e)
         {
             MainClass.disable_reset(leftPanel);
-            r.getCategoriesList("st_getCategoriesList", categoryDD, "Category", "ID");
+            r.getList("st_getCategoriesList", categoryDD, "Category", "ID");
         }
 
         public override void addBtn_Click(object sender, EventArgs e)

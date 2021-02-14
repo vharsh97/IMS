@@ -50,9 +50,10 @@ namespace IMS
             this.quantityGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.perUnitPriceGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalAmountGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.deleteGV = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.grossLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.supplierErrorLabel = new System.Windows.Forms.Label();
             this.barcodeErrorLabel = new System.Windows.Forms.Label();
@@ -250,7 +251,8 @@ namespace IMS
             this.productNameGV,
             this.quantityGV,
             this.perUnitPriceGV,
-            this.totalAmountGV});
+            this.totalAmountGV,
+            this.deleteGV});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -269,7 +271,7 @@ namespace IMS
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(687, 458);
             this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // productIDGV
             // 
@@ -307,6 +309,16 @@ namespace IMS
             this.totalAmountGV.Name = "totalAmountGV";
             this.totalAmountGV.ReadOnly = true;
             // 
+            // deleteGV
+            // 
+            this.deleteGV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.deleteGV.HeaderText = "Action";
+            this.deleteGV.MinimumWidth = 6;
+            this.deleteGV.Name = "deleteGV";
+            this.deleteGV.ReadOnly = true;
+            this.deleteGV.Text = "DELETE";
+            this.deleteGV.UseColumnTextForButtonValue = true;
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.tableLayoutPanel2);
@@ -321,7 +333,7 @@ namespace IMS
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.43231F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.56769F));
-            this.tableLayoutPanel2.Controls.Add(this.label8, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.grossLabel, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
@@ -331,16 +343,16 @@ namespace IMS
             this.tableLayoutPanel2.Size = new System.Drawing.Size(687, 69);
             this.tableLayoutPanel2.TabIndex = 15;
             // 
-            // label8
+            // grossLabel
             // 
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(479, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(205, 69);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "0.00";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.grossLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grossLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grossLabel.Location = new System.Drawing.Point(479, 0);
+            this.grossLabel.Name = "grossLabel";
+            this.grossLabel.Size = new System.Drawing.Size(205, 69);
+            this.grossLabel.TabIndex = 14;
+            this.grossLabel.Text = "0.00";
+            this.grossLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label9
             // 
@@ -423,17 +435,18 @@ namespace IMS
         private System.Windows.Forms.Label totLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label grossLabel;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label supplierErrorLabel;
+        private System.Windows.Forms.Label quantityErrorLabel;
+        private System.Windows.Forms.Label barcodeErrorLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn perUnitPriceGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalAmountGV;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label supplierErrorLabel;
-        private System.Windows.Forms.Label quantityErrorLabel;
-        private System.Windows.Forms.Label barcodeErrorLabel;
+        private System.Windows.Forms.DataGridViewButtonColumn deleteGV;
     }
 }

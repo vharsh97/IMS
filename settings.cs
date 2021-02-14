@@ -18,16 +18,6 @@ namespace IMS
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (isCB.Checked)
@@ -53,7 +43,7 @@ namespace IMS
             {
                 if (serverText.Text != "" && databaseText.Text != "")
                 {
-                    s = "Data Source=" + serverText.Text + ";Initial Catalog=" + databaseText.Text + ";Integrated Security=true;";
+                    s = "Data Source=" + serverText.Text + ";Initial Catalog=" + databaseText.Text + ";Integrated Security=true;MultipleActiveResultSets=true;";
                     File.WriteAllText(path+"\\connect", s);
                     DialogResult dr = MessageBox.Show("Settings saved successfully...", "Information...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (dr == DialogResult.OK)
@@ -71,7 +61,7 @@ namespace IMS
             {
                 if (serverText.Text != "" && databaseText.Text != "" && userText.Text != "" && passwordText.Text != "")
                 {
-                    s = "Data Source=" + serverText.Text + ";Initial Catalog=" + databaseText.Text + ";User ID=" + userText.Text + ";Password=" + passwordText.Text + ";";
+                    s = "Data Source=" + serverText.Text + ";Initial Catalog=" + databaseText.Text + ";User ID=" + userText.Text + ";Password=" + passwordText.Text + ";MultipleActiveResultSets=true;";
                     File.WriteAllText(path + "\\connect", s);
                     DialogResult dr = MessageBox.Show("Settings saved successfully...", "Information...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (dr == DialogResult.OK)

@@ -248,5 +248,73 @@ namespace IMS
                 MainClass.showMSG("Unable to load Suppliers data.", "Error", "Error");
             }
         }
+
+        public void getListWithTwoParameters(string proc, ComboBox cb, string dispalyMember, string valueMember, string param1, object val1, string param2, object val2)
+        {
+            try
+            {
+                cb.DataSource = null;
+
+                SqlCommand cmd = new SqlCommand(proc, MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue(param1, val1);
+                cmd.Parameters.AddWithValue(param2, val2);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                DataRow dr = dt.NewRow();
+                dr.ItemArray = new object[] { 0, "Select..." };
+                dt.Rows.InsertAt(dr, 0);
+                cb.DisplayMember = dispalyMember;
+                cb.ValueMember = valueMember;
+                cb.DataSource = dt;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void showPurchaseInvoiceDetails(Int64 pid, DataGridView gv, DataGridViewColumn productIDGV, DataGridViewColumn productNameGV, DataGridViewColumn quantGV, DataGridViewColumn pupGV, DataGridViewColumn totGV)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getPurchaseInvoiceDetails", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@pid", pid);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                productIDGV.DataPropertyName = dt.Columns["Product ID"].ToString();
+                productNameGV.DataPropertyName = dt.Columns["Product"].ToString();
+                pupGV.DataPropertyName = dt.Columns["Per Unit Price"].ToString();
+                totGV.DataPropertyName = dt.Columns["Total Price"].ToString();
+                quantGV.DataPropertyName = dt.Columns["Quantity"].ToString();
+                gv.DataSource = dt;
+            }
+            catch (Exception)
+            {
+                MainClass.showMSG("Unable to load Product data.", "Error", "Error");
+            }
+        }
+
+        private object productStockCount = 0;
+        public object getProductQuantity(int proID)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getProductQuantity", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@proID", proID);
+                MainClass.con.Open();
+                productStockCount = cmd.ExecuteScalar();
+                MainClass.con.Close();
+            }
+            catch (Exception)
+            {
+            }
+            return productStockCount;
+        }
     }
 }

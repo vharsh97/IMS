@@ -32,7 +32,7 @@ namespace IMS
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
             this.purchaseInvoiceBtn = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.stockBtn = new System.Windows.Forms.Button();
             this.productDD = new System.Windows.Forms.Button();
             this.userBtn = new System.Windows.Forms.Button();
             this.categoryBtn = new System.Windows.Forms.Button();
@@ -62,7 +62,7 @@ namespace IMS
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Controls.Add(this.button5, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.purchaseInvoiceBtn, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.stockBtn, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.productDD, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.userBtn, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.categoryBtn, 0, 1);
@@ -108,19 +108,20 @@ namespace IMS
             this.purchaseInvoiceBtn.UseVisualStyleBackColor = true;
             this.purchaseInvoiceBtn.Click += new System.EventHandler(this.purchaseInvoiceBtn_Click);
             // 
-            // button3
+            // stockBtn
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(325, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 92);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Stock";
-            this.button3.UseVisualStyleBackColor = true;
+            this.stockBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stockBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stockBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.stockBtn.FlatAppearance.BorderSize = 2;
+            this.stockBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stockBtn.Location = new System.Drawing.Point(325, 3);
+            this.stockBtn.Name = "stockBtn";
+            this.stockBtn.Size = new System.Drawing.Size(155, 92);
+            this.stockBtn.TabIndex = 2;
+            this.stockBtn.Text = "Stock";
+            this.stockBtn.UseVisualStyleBackColor = true;
+            this.stockBtn.Click += new System.EventHandler(this.stockBtn_Click);
             // 
             // productDD
             // 
@@ -202,7 +203,7 @@ namespace IMS
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button purchaseInvoiceBtn;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button stockBtn;
         private System.Windows.Forms.Button productDD;
         private System.Windows.Forms.Button userBtn;
         private System.Windows.Forms.Button categoryBtn;

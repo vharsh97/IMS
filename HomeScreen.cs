@@ -52,5 +52,11 @@ namespace IMS
             PurchaseInvoice pr = new PurchaseInvoice();
             MainClass.showWindow(pr, this, MDI.ActiveForm);
         }
+
+        private void stockBtn_Click(object sender, EventArgs e)
+        {
+            Stocks s = new Stocks();
+            MainClass.showWindow(s, this, MDI.ActiveForm);
+        }
     }
 }

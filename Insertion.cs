@@ -193,5 +193,27 @@ namespace IMS
                 MainClass.con.Close();
             }
         }
+
+        public void insertDeletedItem(Int64 pid, int proid, int quan, int userid, DateTime date)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_insertDeletedItemPI", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@pi", pid);
+                cmd.Parameters.AddWithValue("@usrID", userid);
+                cmd.Parameters.AddWithValue("@proID", proid);
+                cmd.Parameters.AddWithValue("@quan", quan);
+                cmd.Parameters.AddWithValue("@date", date);
+                MainClass.con.Open();
+                cmd.ExecuteNonQuery();
+                MainClass.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MainClass.con.Close();
+                MainClass.showMSG(ex.Message, "Error...", "Error");
+            }
+        }
     }
 }

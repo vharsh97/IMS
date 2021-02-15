@@ -41,6 +41,7 @@ namespace IMS
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.grossLabel = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.mPIDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productIDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productNameGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -135,6 +136,7 @@ namespace IMS
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.mPIDGV,
             this.productIDGV,
             this.productNameGV,
             this.quantityGV,
@@ -159,6 +161,7 @@ namespace IMS
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(678, 516);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // tableLayoutPanel2
             // 
@@ -196,6 +199,14 @@ namespace IMS
             this.label9.TabIndex = 13;
             this.label9.Text = "Gross Total";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // mPIDGV
+            // 
+            this.mPIDGV.HeaderText = "mPIDGV";
+            this.mPIDGV.MinimumWidth = 6;
+            this.mPIDGV.Name = "mPIDGV";
+            this.mPIDGV.ReadOnly = true;
+            this.mPIDGV.Visible = false;
             // 
             // productIDGV
             // 
@@ -277,6 +288,7 @@ namespace IMS
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label grossLabel;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mPIDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityGV;

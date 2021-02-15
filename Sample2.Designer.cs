@@ -223,15 +223,15 @@ namespace IMS
 
         #endregion
 
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.Button editBtn;
-        private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.GroupBox groupBox1;
-        protected System.Windows.Forms.TextBox searchText;
-        private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.Button viewBtn;
+        public System.Windows.Forms.Panel panel3;
+        public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        public System.Windows.Forms.Button deleteBtn;
+        public System.Windows.Forms.Button saveBtn;
+        public System.Windows.Forms.Button editBtn;
+        public System.Windows.Forms.Button addBtn;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.TextBox searchText;
+        public System.Windows.Forms.Button backBtn;
+        public System.Windows.Forms.Button viewBtn;
     }
 }

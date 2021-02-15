@@ -276,7 +276,7 @@ namespace IMS
             }
         }
 
-        public void showPurchaseInvoiceDetails(Int64 pid, DataGridView gv, DataGridViewColumn productIDGV, DataGridViewColumn productNameGV, DataGridViewColumn quantGV, DataGridViewColumn pupGV, DataGridViewColumn totGV)
+        public void showPurchaseInvoiceDetails(Int64 pid, DataGridView gv, DataGridViewColumn mPIDGV,DataGridViewColumn productIDGV, DataGridViewColumn productNameGV, DataGridViewColumn quantGV, DataGridViewColumn pupGV, DataGridViewColumn totGV)
         {
             try
             {
@@ -286,6 +286,7 @@ namespace IMS
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
+                mPIDGV.DataPropertyName = dt.Columns["mPID"].ToString();
                 productIDGV.DataPropertyName = dt.Columns["Product ID"].ToString();
                 productNameGV.DataPropertyName = dt.Columns["Product"].ToString();
                 pupGV.DataPropertyName = dt.Columns["Per Unit Price"].ToString();
@@ -315,6 +316,32 @@ namespace IMS
             {
             }
             return productStockCount;
+        }
+
+        public void showStockDetails(DataGridView gv, DataGridViewColumn proIDGV, DataGridViewColumn proGV, DataGridViewColumn barcodeGV, DataGridViewColumn expiryGV, DataGridViewColumn priceGV, DataGridViewColumn catGV, DataGridViewColumn availSGV, DataGridViewColumn totGV, DataGridViewColumn statusGV)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getALLStock", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                proIDGV.DataPropertyName = dt.Columns["Product ID"].ToString();
+                proGV.DataPropertyName = dt.Columns["Product"].ToString();
+                barcodeGV.DataPropertyName = dt.Columns["Barcode"].ToString();
+                expiryGV.DataPropertyName = dt.Columns["Expiry Date"].ToString();
+                priceGV.DataPropertyName = dt.Columns["Price"].ToString();
+                catGV.DataPropertyName = dt.Columns["Category"].ToString();
+                availSGV.DataPropertyName = dt.Columns["Available Stock"].ToString();
+                totGV.DataPropertyName = dt.Columns["Total Amount"].ToString();
+                statusGV.DataPropertyName = dt.Columns["Status"].ToString();
+                gv.DataSource = dt;
+            }
+            catch (Exception)
+            {
+                MainClass.showMSG("Unable to load Stock data.", "Error", "Error");
+            }
         }
     }
 }

@@ -37,8 +37,8 @@ namespace IMS
             this.addBtn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.searchText = new System.Windows.Forms.TextBox();
-            this.backBtn = new System.Windows.Forms.Button();
             this.viewBtn = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.rightPanel.SuspendLayout();
@@ -177,6 +177,21 @@ namespace IMS
             this.searchText.TabIndex = 0;
             this.searchText.TextChanged += new System.EventHandler(this.searchText_TextChanged);
             // 
+            // viewBtn
+            // 
+            this.viewBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.viewBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.viewBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.viewBtn.FlatAppearance.BorderSize = 2;
+            this.viewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewBtn.Location = new System.Drawing.Point(519, 3);
+            this.viewBtn.Name = "viewBtn";
+            this.viewBtn.Size = new System.Drawing.Size(123, 54);
+            this.viewBtn.TabIndex = 7;
+            this.viewBtn.Text = "VIEW";
+            this.viewBtn.UseVisualStyleBackColor = true;
+            this.viewBtn.Click += new System.EventHandler(this.viewBtn_Click);
+            // 
             // backBtn
             // 
             this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
@@ -189,20 +204,6 @@ namespace IMS
             this.backBtn.TabIndex = 2;
             this.backBtn.UseVisualStyleBackColor = true;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
-            // 
-            // viewBtn
-            // 
-            this.viewBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.viewBtn.FlatAppearance.BorderSize = 2;
-            this.viewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.viewBtn.Location = new System.Drawing.Point(519, 3);
-            this.viewBtn.Name = "viewBtn";
-            this.viewBtn.Size = new System.Drawing.Size(123, 54);
-            this.viewBtn.TabIndex = 7;
-            this.viewBtn.Text = "VIEW";
-            this.viewBtn.UseVisualStyleBackColor = true;
-            this.viewBtn.Click += new System.EventHandler(this.viewBtn_Click);
             // 
             // Sample2
             // 

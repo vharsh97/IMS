@@ -44,9 +44,8 @@ namespace IMS
             if (barcodeText.Text == "") { barcodeErrorLabel.Visible = true; } else { barcodeErrorLabel.Visible = false; }
             if (expiryDatePicker.Value < DateTime.Now) { expiryErrorLabel.Visible = true; expiryErrorLabel.Text = "Invalid Date"; } else { expiryErrorLabel.Visible = false; }
             if(expiryDatePicker.Value.Date == DateTime.Now.Date) { expiryErrorLabel.Visible = false; }
-            if (priceText.Text == "") { priceErrorLabel.Visible = true; } else { priceErrorLabel.Visible = false; }
             if (categoryDD.SelectedIndex == -1 || categoryDD.SelectedIndex == 0) { categoryErrorLabel.Visible = true; } else { categoryErrorLabel.Visible = false; }
-            if (productErrorLabel.Visible || barcodeErrorLabel.Visible || expiryErrorLabel.Visible || priceErrorLabel.Visible || categoryErrorLabel.Visible)
+            if (productErrorLabel.Visible || barcodeErrorLabel.Visible || expiryErrorLabel.Visible || categoryErrorLabel.Visible)
             {
                 MainClass.showMSG("Fields with * are mandatory", "Stop", "Error"); //Error is the type of message.
             }
@@ -57,13 +56,13 @@ namespace IMS
                     Insertion i = new Insertion();
                     if(expiryDatePicker.Value.Date == DateTime.Now.Date)
                     {
-                        i.insertProduct(productText.Text, barcodeText.Text, Convert.ToSingle(priceText.Text), Convert.ToInt32(categoryDD.SelectedValue), null);
+                        i.insertProduct(productText.Text, barcodeText.Text, Convert.ToInt32(categoryDD.SelectedValue), null);
                     }
                     else
                     {
-                        i.insertProduct(productText.Text, barcodeText.Text, Convert.ToSingle(priceText.Text), Convert.ToInt32(categoryDD.SelectedValue), expiryDatePicker.Value);
+                        i.insertProduct(productText.Text, barcodeText.Text, Convert.ToInt32(categoryDD.SelectedValue), expiryDatePicker.Value);
                     }
-                    r.showProducts(dataGridView1, productIDGV, productNameGV, expiryGV, categoryGV, priceGV, barcodeGV, categoryIDGV);
+                    r.showProducts(dataGridView1, productIDGV, productNameGV, expiryGV, categoryGV, barcodeGV, categoryIDGV);
                     MainClass.disable_reset(leftPanel);
                 }
                 else if (edit == 1) //code for edit operation
@@ -74,13 +73,13 @@ namespace IMS
                         Updation u = new Updation();
                         if (expiryDatePicker.Value.Date == DateTime.Now.Date)
                         {
-                            u.updateProduct(productID, productText.Text, barcodeText.Text, Convert.ToSingle(priceText.Text), Convert.ToInt32(categoryDD.SelectedValue), null);
+                            u.updateProduct(productID, productText.Text, barcodeText.Text, Convert.ToInt32(categoryDD.SelectedValue), null);
                         }
                         else
                         {
-                            u.updateProduct(productID, productText.Text, barcodeText.Text, Convert.ToSingle(priceText.Text), Convert.ToInt32(categoryDD.SelectedValue), expiryDatePicker.Value);
+                            u.updateProduct(productID, productText.Text, barcodeText.Text, Convert.ToInt32(categoryDD.SelectedValue), expiryDatePicker.Value);
                         }
-                        r.showProducts(dataGridView1, productIDGV, productNameGV, expiryGV, categoryGV, priceGV, barcodeGV, categoryIDGV);
+                        r.showProducts(dataGridView1, productIDGV, productNameGV, expiryGV, categoryGV, barcodeGV, categoryIDGV);
                         MainClass.disable_reset(leftPanel);
                     }
                 }
@@ -96,14 +95,14 @@ namespace IMS
                 {
                     Deletion d = new Deletion();
                     d.delete(productID, "st_productDelete", "@proID");
-                    r.showProducts(dataGridView1, productIDGV, productNameGV, expiryGV, categoryGV, priceGV, barcodeGV, categoryIDGV);
+                    r.showProducts(dataGridView1, productIDGV, productNameGV, expiryGV, categoryGV, barcodeGV, categoryIDGV);
                 }
             }
         }
 
         public override void viewBtn_Click(object sender, EventArgs e)
         {
-            r.showProducts(dataGridView1, productIDGV, productNameGV, expiryGV, categoryGV, priceGV, barcodeGV, categoryIDGV);
+            r.showProducts(dataGridView1, productIDGV, productNameGV, expiryGV, categoryGV, barcodeGV, categoryIDGV);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -114,7 +113,6 @@ namespace IMS
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
                 productID = Convert.ToInt32(row.Cells["productIDGV"].Value.ToString());
                 productText.Text = row.Cells["productNameGV"].Value.ToString();
-                priceText.Text = row.Cells["priceGV"].Value.ToString();
                 barcodeText.Text = row.Cells["barcodeGV"].Value.ToString();
                 if(row.Cells["expiryGV"].FormattedValue.ToString() == "")
                 {
@@ -137,11 +135,6 @@ namespace IMS
         private void barcodeText_TextChanged(object sender, EventArgs e)
         {
             if (barcodeText.Text == "") { barcodeErrorLabel.Visible = true; } else { barcodeErrorLabel.Visible = false; }
-        }
-
-        private void priceText_TextChanged(object sender, EventArgs e)
-        {
-            if (priceText.Text == "") { priceErrorLabel.Visible = true; } else { priceErrorLabel.Visible = false; }
         }
     }
 }

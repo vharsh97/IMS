@@ -58,5 +58,17 @@ namespace IMS
             Stocks s = new Stocks();
             MainClass.showWindow(s, this, MDI.ActiveForm);
         }
+
+        private void salesBtn_Click(object sender, EventArgs e)
+        {
+            Sales sl = new Sales();
+            MainClass.showWindow(sl, this, MDI.ActiveForm);
+        }
+
+        private void proPricingBtn_Click(object sender, EventArgs e)
+        {
+            ProductPricing prc = new ProductPricing();
+            MainClass.showWindow(prc, this, MDI.ActiveForm);
+        }
     }
 }

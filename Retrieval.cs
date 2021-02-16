@@ -100,8 +100,7 @@ namespace IMS
             }
         }
 
-        private string[] productsData = new string[4];
-
+        private string[] productsData = new string[6];
         public string[] getProductsWRTBarcode(string barcode)
         {
             try
@@ -115,10 +114,12 @@ namespace IMS
                 {
                     while(dr.Read())
                     {
-                        productsData[0] = dr[0].ToString();
-                        productsData[1] = dr[1].ToString();
-                        productsData[2] = dr[2].ToString();
-                        productsData[3] = dr[3].ToString();
+                        productsData[0] = dr[0].ToString(); // Product ID
+                        productsData[1] = dr[1].ToString(); // Product
+                        productsData[2] = dr[2].ToString(); // Barcode
+                        productsData[3] = dr[3].ToString(); // Selling price
+                        productsData[4] = dr[4].ToString(); // Discount 
+                        productsData[5] = dr[5].ToString(); // Final Selling Price
                     }
                 }
                 else
@@ -135,7 +136,7 @@ namespace IMS
             return productsData;
         }
 
-        public void showProducts(DataGridView gv, DataGridViewColumn productIDGV, DataGridViewColumn productNameGV, DataGridViewColumn expiryGV, DataGridViewColumn categoryGV, DataGridViewColumn priceGV, DataGridViewColumn barcodeGV, DataGridViewColumn categoryIDGV)
+        public void showProducts(DataGridView gv, DataGridViewColumn productIDGV, DataGridViewColumn productNameGV, DataGridViewColumn expiryGV, DataGridViewColumn categoryGV, DataGridViewColumn barcodeGV, DataGridViewColumn categoryIDGV)
         {
             try
             {
@@ -148,7 +149,6 @@ namespace IMS
                 productNameGV.DataPropertyName = dt.Columns["Product"].ToString();
                 expiryGV.DataPropertyName = dt.Columns["Expiry"].ToString();
                 categoryGV.DataPropertyName = dt.Columns["Category"].ToString();
-                priceGV.DataPropertyName = dt.Columns["Price"].ToString();
                 barcodeGV.DataPropertyName = dt.Columns["Barcode"].ToString();
                 categoryIDGV.DataPropertyName = dt.Columns["Category ID"].ToString();
                 gv.DataSource = dt;
@@ -318,7 +318,34 @@ namespace IMS
             return productStockCount;
         }
 
-        public void showStockDetails(DataGridView gv, DataGridViewColumn proIDGV, DataGridViewColumn proGV, DataGridViewColumn barcodeGV, DataGridViewColumn expiryGV, DataGridViewColumn priceGV, DataGridViewColumn catGV, DataGridViewColumn availSGV, DataGridViewColumn totGV, DataGridViewColumn statusGV)
+        private bool checkPPExistance;
+        public bool checkProductPriceExistance(int proID)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_checkProductPriceExist", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@proID", proID);
+                MainClass.con.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    checkPPExistance = true;
+                }
+                else
+                {
+                    checkPPExistance = false;
+                }
+                MainClass.con.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return checkPPExistance;
+        }
+        public void showStockDetails(DataGridView gv, DataGridViewColumn proIDGV, DataGridViewColumn proGV, DataGridViewColumn barcodeGV, DataGridViewColumn expiryGV, DataGridViewColumn bpGV, DataGridViewColumn spGV, DataGridViewColumn catGV, DataGridViewColumn availSGV, DataGridViewColumn totGV, DataGridViewColumn statusGV)
         {
             try
             {
@@ -331,7 +358,8 @@ namespace IMS
                 proGV.DataPropertyName = dt.Columns["Product"].ToString();
                 barcodeGV.DataPropertyName = dt.Columns["Barcode"].ToString();
                 expiryGV.DataPropertyName = dt.Columns["Expiry Date"].ToString();
-                priceGV.DataPropertyName = dt.Columns["Price"].ToString();
+                bpGV.DataPropertyName = dt.Columns["Buying Price"].ToString();
+                spGV.DataPropertyName = dt.Columns["Selling Price"].ToString();
                 catGV.DataPropertyName = dt.Columns["Category"].ToString();
                 availSGV.DataPropertyName = dt.Columns["Available Stock"].ToString();
                 totGV.DataPropertyName = dt.Columns["Total Amount"].ToString();
@@ -343,5 +371,30 @@ namespace IMS
                 MainClass.showMSG("Unable to load Stock data.", "Error", "Error");
             }
         }
+
+        public void showProductWRTCategories(int catID,DataGridView gv, DataGridViewColumn proIDGV, DataGridViewColumn proNameGV, DataGridViewColumn bpGV, DataGridViewColumn spGV, DataGridViewColumn disGV, DataGridViewColumn profitPerGV )
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_getProductsWRTCategory", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@catID", catID);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                proIDGV.DataPropertyName = dt.Columns["Product ID"].ToString();
+                proNameGV.DataPropertyName = dt.Columns["Product"].ToString();
+                bpGV.DataPropertyName = dt.Columns["Buying Price"].ToString();
+                spGV.DataPropertyName = dt.Columns["Selling Price"].ToString();
+                disGV.DataPropertyName = dt.Columns["Discount"].ToString();
+                profitPerGV.DataPropertyName = dt.Columns["Profit Percentage"].ToString();
+                gv.DataSource = dt;
+            }
+            catch (Exception)
+            {
+                MainClass.showMSG("Unable to load Products.", "Error", "Error");
+            }
+        }
+
     }
 }

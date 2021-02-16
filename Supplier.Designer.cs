@@ -61,13 +61,22 @@ namespace IMS
             this.ntnGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leftPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.rightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // panel3
+            // 
+            this.panel3.Size = new System.Drawing.Size(643, 60);
+            // 
             // searchText
             // 
             this.searchText.Size = new System.Drawing.Size(96, 27);
+            // 
+            // backBtn
+            // 
+            this.backBtn.FlatAppearance.BorderSize = 0;
             // 
             // leftPanel
             // 
@@ -118,6 +127,7 @@ namespace IMS
             // 
             this.rightPanel.Controls.Add(this.dataGridView1);
             this.rightPanel.Size = new System.Drawing.Size(643, 636);
+            this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             this.rightPanel.Controls.SetChildIndex(this.dataGridView1, 0);
             // 
             // label2
@@ -236,6 +246,7 @@ namespace IMS
             // 
             // statusDD
             // 
+            this.statusDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusDD.FormattingEnabled = true;
             this.statusDD.Items.AddRange(new object[] {
             "Active",
@@ -425,6 +436,7 @@ namespace IMS
             this.Load += new System.EventHandler(this.Supplier_Load);
             this.leftPanel.ResumeLayout(false);
             this.leftPanel.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.rightPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -21,7 +21,10 @@ namespace IMS
 
         private void Stocks_Load(object sender, EventArgs e)
         {
-            
+            base.addBtn.Enabled = false;
+            base.editBtn.Enabled = false;
+            base.saveBtn.Enabled = false;
+            base.deleteBtn.Enabled = false;
         }
 
         public override void addBtn_Click(object sender, EventArgs e)
@@ -51,7 +54,7 @@ namespace IMS
 
         public override void viewBtn_Click(object sender, EventArgs e)
         {
-            r.showStockDetails(dataGridView1, productIDGV, productNameGV, barGV, expiryGV, priceGV, catGV, quantityGV, finalGV, statusGV);
+            r.showStockDetails(dataGridView1, productIDGV, productNameGV, barGV, expiryGV, bpGV, spGV, catGV, quantityGV, finalGV, statusGV);
         }
     }
 }

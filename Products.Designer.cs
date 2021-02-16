@@ -30,18 +30,14 @@ namespace IMS
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label3 = new System.Windows.Forms.Label();
             this.productText = new System.Windows.Forms.TextBox();
             this.barcodeText = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.priceText = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.productErrorLabel = new System.Windows.Forms.Label();
             this.barcodeErrorLabel = new System.Windows.Forms.Label();
-            this.priceErrorLabel = new System.Windows.Forms.Label();
             this.expiryDatePicker = new System.Windows.Forms.DateTimePicker();
             this.expiryErrorLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,32 +48,37 @@ namespace IMS
             this.productNameGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barcodeGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expiryGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryIDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leftPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.rightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
+            // panel3
+            // 
+            this.panel3.Size = new System.Drawing.Size(727, 60);
+            // 
             // searchText
             // 
             this.searchText.Size = new System.Drawing.Size(110, 27);
+            // 
+            // backBtn
+            // 
+            this.backBtn.FlatAppearance.BorderSize = 0;
             // 
             // leftPanel
             // 
             this.leftPanel.Controls.Add(this.categoryDD);
             this.leftPanel.Controls.Add(this.label7);
             this.leftPanel.Controls.Add(this.expiryDatePicker);
-            this.leftPanel.Controls.Add(this.priceText);
-            this.leftPanel.Controls.Add(this.label6);
             this.leftPanel.Controls.Add(this.label5);
             this.leftPanel.Controls.Add(this.barcodeText);
             this.leftPanel.Controls.Add(this.label4);
             this.leftPanel.Controls.Add(this.productText);
             this.leftPanel.Controls.Add(this.label3);
             this.leftPanel.Controls.Add(this.productErrorLabel);
-            this.leftPanel.Controls.Add(this.priceErrorLabel);
             this.leftPanel.Controls.Add(this.barcodeErrorLabel);
             this.leftPanel.Controls.Add(this.expiryErrorLabel);
             this.leftPanel.Controls.Add(this.categoryErrorLabel);
@@ -85,7 +86,6 @@ namespace IMS
             this.leftPanel.Controls.SetChildIndex(this.categoryErrorLabel, 0);
             this.leftPanel.Controls.SetChildIndex(this.expiryErrorLabel, 0);
             this.leftPanel.Controls.SetChildIndex(this.barcodeErrorLabel, 0);
-            this.leftPanel.Controls.SetChildIndex(this.priceErrorLabel, 0);
             this.leftPanel.Controls.SetChildIndex(this.productErrorLabel, 0);
             this.leftPanel.Controls.SetChildIndex(this.panel2, 0);
             this.leftPanel.Controls.SetChildIndex(this.label3, 0);
@@ -93,8 +93,6 @@ namespace IMS
             this.leftPanel.Controls.SetChildIndex(this.label4, 0);
             this.leftPanel.Controls.SetChildIndex(this.barcodeText, 0);
             this.leftPanel.Controls.SetChildIndex(this.label5, 0);
-            this.leftPanel.Controls.SetChildIndex(this.label6, 0);
-            this.leftPanel.Controls.SetChildIndex(this.priceText, 0);
             this.leftPanel.Controls.SetChildIndex(this.expiryDatePicker, 0);
             this.leftPanel.Controls.SetChildIndex(this.label7, 0);
             this.leftPanel.Controls.SetChildIndex(this.categoryDD, 0);
@@ -103,6 +101,7 @@ namespace IMS
             // 
             this.rightPanel.Controls.Add(this.dataGridView1);
             this.rightPanel.Size = new System.Drawing.Size(727, 663);
+            this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             this.rightPanel.Controls.SetChildIndex(this.dataGridView1, 0);
             // 
             // label3
@@ -148,23 +147,6 @@ namespace IMS
             this.label5.TabIndex = 6;
             this.label5.Text = "Expiry Date";
             // 
-            // priceText
-            // 
-            this.priceText.Location = new System.Drawing.Point(12, 335);
-            this.priceText.Name = "priceText";
-            this.priceText.Size = new System.Drawing.Size(225, 27);
-            this.priceText.TabIndex = 9;
-            this.priceText.TextChanged += new System.EventHandler(this.priceText_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 312);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 20);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Price";
-            // 
             // productErrorLabel
             // 
             this.productErrorLabel.AutoSize = true;
@@ -188,18 +170,6 @@ namespace IMS
             this.barcodeErrorLabel.TabIndex = 14;
             this.barcodeErrorLabel.Text = "*";
             this.barcodeErrorLabel.Visible = false;
-            // 
-            // priceErrorLabel
-            // 
-            this.priceErrorLabel.AutoSize = true;
-            this.priceErrorLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceErrorLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.priceErrorLabel.Location = new System.Drawing.Point(47, 307);
-            this.priceErrorLabel.Name = "priceErrorLabel";
-            this.priceErrorLabel.Size = new System.Drawing.Size(25, 35);
-            this.priceErrorLabel.TabIndex = 16;
-            this.priceErrorLabel.Text = "*";
-            this.priceErrorLabel.Visible = false;
             // 
             // expiryDatePicker
             // 
@@ -225,7 +195,7 @@ namespace IMS
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 365);
+            this.label7.Location = new System.Drawing.Point(12, 312);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 20);
             this.label7.TabIndex = 19;
@@ -236,7 +206,7 @@ namespace IMS
             this.categoryErrorLabel.AutoSize = true;
             this.categoryErrorLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryErrorLabel.ForeColor = System.Drawing.Color.Salmon;
-            this.categoryErrorLabel.Location = new System.Drawing.Point(74, 360);
+            this.categoryErrorLabel.Location = new System.Drawing.Point(74, 307);
             this.categoryErrorLabel.Name = "categoryErrorLabel";
             this.categoryErrorLabel.Size = new System.Drawing.Size(25, 35);
             this.categoryErrorLabel.TabIndex = 21;
@@ -247,7 +217,7 @@ namespace IMS
             // 
             this.categoryDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.categoryDD.FormattingEnabled = true;
-            this.categoryDD.Location = new System.Drawing.Point(12, 388);
+            this.categoryDD.Location = new System.Drawing.Point(12, 335);
             this.categoryDD.Name = "categoryDD";
             this.categoryDD.Size = new System.Drawing.Size(225, 28);
             this.categoryDD.TabIndex = 22;
@@ -273,17 +243,16 @@ namespace IMS
             this.productNameGV,
             this.barcodeGV,
             this.expiryGV,
-            this.priceGV,
             this.categoryIDGV,
             this.categoryGV});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 116);
             this.dataGridView1.Name = "dataGridView1";
@@ -325,16 +294,6 @@ namespace IMS
             this.expiryGV.Name = "expiryGV";
             this.expiryGV.ReadOnly = true;
             // 
-            // priceGV
-            // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = "0";
-            this.priceGV.DefaultCellStyle = dataGridViewCellStyle2;
-            this.priceGV.HeaderText = "Price";
-            this.priceGV.MinimumWidth = 6;
-            this.priceGV.Name = "priceGV";
-            this.priceGV.ReadOnly = true;
-            // 
             // categoryIDGV
             // 
             this.categoryIDGV.HeaderText = "Category ID";
@@ -360,6 +319,7 @@ namespace IMS
             this.Load += new System.EventHandler(this.Products_Load);
             this.leftPanel.ResumeLayout(false);
             this.leftPanel.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.rightPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -370,14 +330,11 @@ namespace IMS
 
         private System.Windows.Forms.TextBox productText;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox priceText;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox barcodeText;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker expiryDatePicker;
         private System.Windows.Forms.Label productErrorLabel;
-        private System.Windows.Forms.Label priceErrorLabel;
         private System.Windows.Forms.Label barcodeErrorLabel;
         private System.Windows.Forms.Label expiryErrorLabel;
         private System.Windows.Forms.ComboBox categoryDD;
@@ -388,7 +345,6 @@ namespace IMS
         private System.Windows.Forms.DataGridViewTextBoxColumn productNameGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcodeGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn expiryGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryIDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryGV;
     }

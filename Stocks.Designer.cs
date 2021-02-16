@@ -30,14 +30,18 @@ namespace IMS
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.productIDGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productNameGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.barGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expiryGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bpGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.spGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.catGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,18 +96,19 @@ namespace IMS
             this.barGV,
             this.quantityGV,
             this.expiryGV,
-            this.priceGV,
+            this.bpGV,
+            this.spGV,
             this.catGV,
             this.statusGV,
             this.finalGV});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 116);
             this.dataGridView1.Name = "dataGridView1";
@@ -151,12 +156,25 @@ namespace IMS
             this.expiryGV.Name = "expiryGV";
             this.expiryGV.ReadOnly = true;
             // 
-            // priceGV
+            // bpGV
             // 
-            this.priceGV.HeaderText = "Price";
-            this.priceGV.MinimumWidth = 6;
-            this.priceGV.Name = "priceGV";
-            this.priceGV.ReadOnly = true;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.bpGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.bpGV.HeaderText = "Buying Price";
+            this.bpGV.MinimumWidth = 6;
+            this.bpGV.Name = "bpGV";
+            this.bpGV.ReadOnly = true;
+            // 
+            // spGV
+            // 
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.spGV.DefaultCellStyle = dataGridViewCellStyle3;
+            this.spGV.HeaderText = "Selling Price";
+            this.spGV.MinimumWidth = 6;
+            this.spGV.Name = "spGV";
+            this.spGV.ReadOnly = true;
             // 
             // catGV
             // 
@@ -174,6 +192,9 @@ namespace IMS
             // 
             // finalGV
             // 
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.finalGV.DefaultCellStyle = dataGridViewCellStyle4;
             this.finalGV.HeaderText = "Total Amount";
             this.finalGV.MinimumWidth = 6;
             this.finalGV.Name = "finalGV";
@@ -203,7 +224,8 @@ namespace IMS
         private System.Windows.Forms.DataGridViewTextBoxColumn barGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn expiryGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bpGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn spGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn catGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn finalGV;

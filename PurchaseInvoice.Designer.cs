@@ -59,15 +59,24 @@ namespace IMS
             this.barcodeErrorLabel = new System.Windows.Forms.Label();
             this.quantityErrorLabel = new System.Windows.Forms.Label();
             this.leftPanel.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.rightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // panel3
+            // 
+            this.panel3.Size = new System.Drawing.Size(687, 60);
+            // 
             // searchText
             // 
             this.searchText.Size = new System.Drawing.Size(105, 27);
+            // 
+            // backBtn
+            // 
+            this.backBtn.FlatAppearance.BorderSize = 0;
             // 
             // leftPanel
             // 
@@ -111,6 +120,7 @@ namespace IMS
             this.rightPanel.Controls.Add(this.panel4);
             this.rightPanel.Controls.Add(this.dataGridView1);
             this.rightPanel.Size = new System.Drawing.Size(687, 643);
+            this.rightPanel.Controls.SetChildIndex(this.panel3, 0);
             this.rightPanel.Controls.SetChildIndex(this.dataGridView1, 0);
             this.rightPanel.Controls.SetChildIndex(this.panel4, 0);
             // 
@@ -129,10 +139,11 @@ namespace IMS
             this.barcodeTxt.Name = "barcodeTxt";
             this.barcodeTxt.Size = new System.Drawing.Size(225, 27);
             this.barcodeTxt.TabIndex = 3;
-            this.barcodeTxt.TextChanged += new System.EventHandler(this.barcodeTxt_TextChanged);
+            this.barcodeTxt.Validating += new System.ComponentModel.CancelEventHandler(this.barcodeTxt_Validating);
             // 
             // suplierDD
             // 
+            this.suplierDD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.suplierDD.FormattingEnabled = true;
             this.suplierDD.Location = new System.Drawing.Point(12, 165);
             this.suplierDD.Name = "suplierDD";
@@ -163,6 +174,7 @@ namespace IMS
             this.perUnitTxt.Name = "perUnitTxt";
             this.perUnitTxt.Size = new System.Drawing.Size(225, 27);
             this.perUnitTxt.TabIndex = 7;
+            this.perUnitTxt.TextChanged += new System.EventHandler(this.perUnitTxt_TextChanged);
             // 
             // label5
             // 
@@ -411,6 +423,7 @@ namespace IMS
             this.Load += new System.EventHandler(this.PurchaseInvoice_Load);
             this.leftPanel.ResumeLayout(false);
             this.leftPanel.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.rightPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel4.ResumeLayout(false);

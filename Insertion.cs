@@ -57,7 +57,7 @@ namespace IMS
             }
         }
 
-        public void insertProduct(string product, string barcode, float price, int catID, DateTime? expiry)
+        public void insertProduct(string product, string barcode, int catID, DateTime? expiry)
         {
             try
             {
@@ -65,7 +65,6 @@ namespace IMS
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", product);
                 cmd.Parameters.AddWithValue("@barcode", barcode);
-                cmd.Parameters.AddWithValue("@price", price);
                 if(expiry == null)
                 {
                     cmd.Parameters.AddWithValue("@expiry", DBNull.Value);
@@ -215,5 +214,25 @@ namespace IMS
                 MainClass.showMSG(ex.Message, "Error...", "Error");
             }
         }
+
+        public void insertProductPrice(int proID, float buyingAmount)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_insertProductPrice", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@proID", proID);
+                cmd.Parameters.AddWithValue("@bp", buyingAmount);
+                MainClass.con.Open();
+                cmd.ExecuteNonQuery();
+                MainClass.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MainClass.con.Close();
+                MainClass.showMSG(ex.Message, "Error...", "Error");
+            }
+        }
+
     }
 }

@@ -16,8 +16,7 @@ namespace IMS
     {
         Retrieval r = new Retrieval();
         int productID;
-        float gt, tot;
-        string[] productArr = new string[4];
+        float gt;
         Regex rg = new Regex(@"^[0-9]*(?:\.[0-9]*)?$");
 
         public PurchaseInvoice()
@@ -50,6 +49,14 @@ namespace IMS
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         co += i.insertPurchaseInvoiceDetails(purchaseInvoiceID, Convert.ToInt32(row.Cells["productIDGV"].Value.ToString()), Convert.ToInt32(row.Cells["quantityGV"].Value.ToString()), Convert.ToSingle(row.Cells["totalAmountGV"].Value.ToString()));
+                        if (r.checkProductPriceExistance(Convert.ToInt32(row.Cells["productIDGV"].Value.ToString())))
+                        {
+                            u.updateProductPrice(Convert.ToInt32(row.Cells["productIDGV"].Value.ToString()), Convert.ToInt32(row.Cells["perUnitPriceGV"].Value.ToString()));
+                        }
+                        else
+                        {
+                            i.insertProductPrice(Convert.ToInt32(row.Cells["productIDGV"].Value.ToString()), Convert.ToSingle(row.Cells["perUnitPriceGV"].Value.ToString()));
+                        }
                         int q;
                         object ob = r.getProductQuantity(Convert.ToInt32(row.Cells["productIDGV"].Value.ToString()));
                         if(ob != null)
@@ -103,27 +110,26 @@ namespace IMS
             r.getList("st_getSupplierList", suplierDD, "Company", "ID");
         }
 
-        private void barcodeTxt_TextChanged(object sender, EventArgs e)
+        string[] productArr = new string[6];
+        private void barcodeTxt_Validating(object sender, CancelEventArgs e)
         {
+
             if (barcodeTxt.Text != "")
             {
                 productArr = r.getProductsWRTBarcode(barcodeTxt.Text);
                 productID = Convert.ToInt32(productArr[0]);
                 productTxt.Text = productArr[1];
-                perUnitTxt.Text = productArr[2];
-                string barco = productArr[3];
+                string barco = productArr[2];
                 productTxt.Enabled = false;
-                perUnitTxt.Enabled = false;
-                if(barco != null)
+                if (barco != null)
                 {
-                    quantityTxt.Focus();
+                    perUnitTxt.Focus();
                 }
             }
             else
             {
                 productID = 0;
                 productTxt.Text = "";
-                perUnitTxt.Text = "";
                 Array.Clear(productArr, 0, productArr.Length);
             }
         }
@@ -161,6 +167,18 @@ namespace IMS
                     gt -= Convert.ToSingle(row.Cells["totalAmountGV"].Value.ToString());
                     grossLabel.Text = gt.ToString();
                     dataGridView1.Rows.Remove(row);
+                }
+            }
+        }
+
+        private void perUnitTxt_TextChanged(object sender, EventArgs e)
+        {
+            if(perUnitTxt.Text != "")
+            {
+                if (!rg.Match(perUnitTxt.Text).Success)
+                {
+                    perUnitTxt.Text = "";
+                    perUnitTxt.Focus();
                 }
             }
         }

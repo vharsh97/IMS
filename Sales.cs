@@ -197,5 +197,21 @@ namespace IMS
                 }
             }
         }
+
+        Insertion i = new Insertion();
+        private void payBtn_Click(object sender, EventArgs e)
+        {
+            if(amtGivenTxt.Text != "" && totDiscountTxt.Text != "" && grossTxt.Text != "" && payDD.SelectedIndex != -1 && changeGivenTxt.Text != "")
+            {
+                DialogResult dr = MessageBox.Show("\n\t\tTotal Amount : "+grossTxt.Text+ "\n\t\tTotal Discount : "+totDiscountTxt.Text + "\n\t\tAmount Given : " + amtGivenTxt.Text + "\n\t\tAmount Returned : " + changeGivenTxt.Text + "\n\nAre you Sure, Submit Current Sales?\n", "Question...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(dr == DialogResult.Yes)
+                {
+                    i.insertSales(dataGridView1, "productIDGV", "quantityGV", Retrieval.USER_ID, DateTime.Now, Convert.ToSingle(grossTxt.Text), Convert.ToSingle(totDiscountTxt.Text), Convert.ToSingle(amtGivenTxt.Text), Convert.ToSingle(changeGivenTxt.Text));
+                    MainClass.enable_reset(groupBox2);
+                    dataGridView1.Rows.Clear();
+                    grossLabel.Text = "0.00";
+                }
+            }
+        }
     }
 }

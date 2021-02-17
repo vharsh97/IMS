@@ -260,6 +260,7 @@ namespace IMS
             // payBtn
             // 
             this.payBtn.BackColor = System.Drawing.Color.IndianRed;
+            this.payBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.payBtn.FlatAppearance.BorderSize = 2;
             this.payBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.payBtn.Location = new System.Drawing.Point(12, 394);
@@ -268,6 +269,7 @@ namespace IMS
             this.payBtn.TabIndex = 11;
             this.payBtn.Text = "&PAY";
             this.payBtn.UseVisualStyleBackColor = false;
+            this.payBtn.Click += new System.EventHandler(this.payBtn_Click);
             // 
             // groupBox2
             // 
@@ -295,6 +297,7 @@ namespace IMS
             // checkoutBtn
             // 
             this.checkoutBtn.BackColor = System.Drawing.Color.IndianRed;
+            this.checkoutBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkoutBtn.FlatAppearance.BorderSize = 2;
             this.checkoutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkoutBtn.Location = new System.Drawing.Point(12, 326);

@@ -148,6 +148,23 @@ namespace IMS
             }
         }
 
+        public void updateStockWithoutConnection(int proID, int quan)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("st_updateStock", MainClass.con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@proID", proID);
+                cmd.Parameters.AddWithValue("@quan", quan);
+               
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                MainClass.con.Close();
+            }
+        }
+
         public void updateProductPrice(int proID, float bp, float sp=0, float dis=0, float profitperc=0)
         {
             try

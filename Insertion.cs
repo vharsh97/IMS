@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace IMS
@@ -231,6 +232,56 @@ namespace IMS
             {
                 MainClass.con.Close();
                 MainClass.showMSG(ex.Message, "Error...", "Error");
+            }
+        }
+
+        int salCount = 0;
+        Int64 salesID;
+        Retrieval r = new Retrieval();
+        Updation u = new Updation();
+        public void insertSales(DataGridView gv,string proIDGV,string proQuanGV,int doneBy, DateTime dt, float tAmount, float tDiscount, float aGiven, float aReturned)
+        {
+            try
+            {
+                using (TransactionScope sc = new TransactionScope())
+                {
+                    SqlCommand cmd = new SqlCommand("st_insertSales", MainClass.con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@done", doneBy);
+                    cmd.Parameters.AddWithValue("@date", dt);
+                    cmd.Parameters.AddWithValue("@totamt", tAmount);
+                    cmd.Parameters.AddWithValue("@totdis", tDiscount);
+                    cmd.Parameters.AddWithValue("@given", aGiven);
+                    cmd.Parameters.AddWithValue("@return", aReturned);
+                    MainClass.con.Open();
+                    salCount = cmd.ExecuteNonQuery();
+                    if (salCount > 0)
+                    {
+                        SqlCommand cmd2 = new SqlCommand("st_getSalesID", MainClass.con);
+                        cmd2.CommandType = CommandType.StoredProcedure;
+                        salesID = Convert.ToInt64(cmd2.ExecuteScalar());
+                        foreach (DataGridViewRow row in gv.Rows)
+                        {
+                            SqlCommand cmd3 = new SqlCommand("st_insertSalesDetails", MainClass.con);
+                            cmd3.CommandType = CommandType.StoredProcedure;
+                            cmd3.Parameters.AddWithValue("@salID", salesID);
+                            cmd3.Parameters.AddWithValue("@proID", Convert.ToInt64(row.Cells[proIDGV].Value.ToString()));
+                            cmd3.Parameters.AddWithValue("@quan", Convert.ToInt32(row.Cells[proQuanGV].Value.ToString()));
+                            cmd3.ExecuteNonQuery();
+                            int stockofProduct = Convert.ToInt32(r.getProductQuantity(Convert.ToInt32(row.Cells[proIDGV].Value.ToString())));
+                            int currentQuanofProduct = Convert.ToInt32(row.Cells[proQuanGV].Value.ToString());
+                            int finalProductQuantity = stockofProduct - currentQuanofProduct;
+                            u.updateStockWithoutConnection(Convert.ToInt32(row.Cells[proIDGV].Value.ToString()), finalProductQuantity);
+                        }
+                    }
+                    MainClass.con.Close();
+                    MainClass.showMSG("Sales Successfull...", "Success", "Success");
+                    sc.Complete();
+                }
+            }
+            catch (Exception)
+            {
+                MainClass.con.Close();
             }
         }
 
